@@ -17,6 +17,7 @@ print("Spark session created")
 #create dataframe for parquet data
 parDF1=spark.read.parquet('hdfs://192.168.0.1:9000/user/user/data')
 #parDF1=spark.read.parquet("data/")
+parDF1 = parDF1.fitler((year(parDF1['tpep_pickup_datetime']) == "2022") & (month(parDF1['tpep_pickup_datetime']) < "7"))
 
 #parDF1.count()
 #parDF1.printSchema()
