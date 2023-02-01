@@ -29,8 +29,12 @@ rdd1 = parDF1.rdd
 
 schema2 = "LocationID INT, Borough STRING, Zone STRING, service_zone STRING"
 
-#create dataframe for csv
+#create dataframe for csv data
 DF2 = spark.read.csv('hdfs://192.168.0.1:9000/user/user/datacsv', schema = schema2)
+
+#create rdd for csv data
+rdd2 = DF2.rdd
+
 #DF2 = spark.read.csv(path = "datacsv/taxi+_zone_lookup.csv", schema = schema2)
 DF2.printSchema()
 
